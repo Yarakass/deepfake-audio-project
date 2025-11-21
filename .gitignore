@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Audio datasets (NE PAS VERSIONNER)
+*.flac
+*.wav
+archive/
+archive.zip
+ASVspoof*/
+PA*/
+LA*/
+
+# Outputs du projet (images, graphiques, exports)
+outputs/
+results/
+*.png
+*.jpg
+
+# Environnements virtuels
+.env
+venv/
+.venv/
+
+# OS junk files
+.DS_Store
+Thumbs.db
