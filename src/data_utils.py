@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 def load_asvspoof_protocol(proto_path: str):
-    """Lit le protocole ASVspoof (format LA_0079 LA_T_xxx - - bonafide/spoof) et renvoie un DataFrame (utt, is_spoof)."""
+    """Reads the ASVspoof protocol (format LA_0079 LA_T_xxx - - bonafide/spoof) and returns a DataFrame (utt, is_spoof)"""
     df = pd.read_csv(
         proto_path,
         sep=r"\s+",
@@ -12,7 +12,7 @@ def load_asvspoof_protocol(proto_path: str):
     df["is_spoof"] = (df["label"].str.lower() == "spoof").astype(int)
     return df[["utt", "is_spoof"]]
 def attach_paths_by_utt(df: pd.DataFrame, audio_root: str):
-    """Associe à chaque utt le chemin du fichier audio correspondant."""
+    """Associate each utt with the path to the corresponding audio file."""
     root = Path(audio_root)
     files = {}
     for p in root.iterdir():
@@ -24,7 +24,7 @@ def attach_paths_by_utt(df: pd.DataFrame, audio_root: str):
     return out
 
 def index_wavefake(root: str):
-    """Construit un DataFrame path/is_spoof à partir de dossiers data/wavefake/real et data/wavefake/fake."""
+    """Constructs a DataFrame path/is_spoof from the folders data/wavefake/real and data/wavefake/fake."""
     rootp = Path(root)
     rows = []
     for lbl, target in [("real",0),("fake",1)]:
