@@ -111,7 +111,7 @@ For BaggingClassifier, we based our approach on the best Decision Tree found, gi
 - max_samples = 0.8, each tree is trained on 80% of the data drawn with replacement.
 - bootstrap = True, enables random sampling with replacement.
 
-## Note : both step 2 are in the 'notebook' folder
+### Note : both step 2 are in the 'notebook' folder
 
 ### Common evaluation function for analyzing model performance
 We agreed to add an evaluation function evaluate(name, model, X, y) which calculates and returns the interference time, predicted probabilities, binary predictions and the main classification metrics.
